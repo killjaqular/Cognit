@@ -19,7 +19,7 @@ COGNIT_TAGLINE="Customer-hosted AI, private data, and useful systems"
 COGNIT_DESCRIPTION="Cognit helps organizations plan and deploy useful AI and data systems on customer-owned hardware installed on their premises."
 COGNIT_SITE_URL="https://www.your-domain.example"
 COGNIT_PUBLIC_HOST="www.your-domain.example"
-COGNIT_CONTACT_EMAIL="hello@your-domain.example"
+COGNIT_CONTACT_EMAIL="consult@cognit.com"
 COGNIT_LOCATION="[Your city / region]"
 COGNIT_TIMEZONE="[Your timezone]"
 COGNIT_LEGAL_DETAILS="[Replace with your legal or business details]"
@@ -34,7 +34,7 @@ COGNIT_FORM_ENDPOINT="https://formspree.io/f/REPLACE_WITH_FORM_ID"
 COGNIT_FORM_SUBJECT="New Cognit consultation inquiry"
 COGNIT_FORM_REDIRECT_URL=""
 COGNIT_FORM_SPAM_PROTECTION="provider-default"
-COGNIT_FORM_RECIPIENT_EMAIL="hello@your-domain.example"
+COGNIT_FORM_RECIPIENT_EMAIL="consult@cognit.com"
 
 # Initial inquiries use a hosted provider. Do not use this form for confidential,
 # regulated, or proprietary customer data. Move sensitive intake into a customer-controlled

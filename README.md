@@ -116,7 +116,7 @@ Before launch:
 
 1. Create a form with a provider such as Formspree, Netlify Forms, Basin, or another service.
 2. Replace `REPLACE_WITH_FORM_ID` with the endpoint supplied by that provider.
-3. Replace `hello@your-domain.example` with the real contact address.
+3. Confirm `consult@cognit.com` is the intended contact address.
 4. Replace the visible form setup note with the provider's final instructions, if needed.
 5. Configure spam protection and notification delivery with the provider.
 6. Do not ask prospective customers to submit confidential, regulated, or proprietary information through this initial hosted form.
@@ -177,7 +177,6 @@ Search the repository for bracketed placeholders and replace them with real info
 - `[Data foundation]`
 - `[Your city / region]`
 - `[Replace with your legal or business details]`
-- `hello@your-domain.example`
 - `REPLACE_WITH_FORM_ID`
 - `your-domain.example`
 
