@@ -1035,6 +1035,37 @@ h1 em {
   background: #31505a;
 }
 
+.civic-courthouse {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: min(78%, 360px);
+  height: auto;
+  color: rgba(244, 241, 232, 0.86);
+  transform: translate(-50%, -52%);
+}
+
+.civic-courthouse path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: square;
+  stroke-linejoin: miter;
+}
+
+.civic-courthouse-roof {
+  fill: var(--accent) !important;
+  fill-opacity: 0.9;
+}
+
+.civic-courthouse-columns {
+  opacity: 0.72;
+}
+
+.civic-courthouse-door {
+  stroke: var(--accent) !important;
+}
+
 .art-word {
   position: absolute;
   right: 19px;
@@ -1043,57 +1074,6 @@ h1 em {
   font-family: var(--mono);
   font-size: 12px;
   letter-spacing: 0.2em;
-}
-
-.art-dot {
-  position: absolute;
-  width: 42px;
-  height: 42px;
-  background: var(--accent);
-  border-radius: 50%;
-}
-
-.art-dot-one {
-  top: 40px;
-  left: 45px;
-}
-
-.art-dot-two {
-  top: 122px;
-  left: 180px;
-  width: 22px;
-  height: 22px;
-  background: var(--coral);
-}
-
-.art-dot-three {
-  right: 90px;
-  bottom: 70px;
-  width: 75px;
-  height: 75px;
-  background: var(--blue);
-}
-
-.art-line {
-  position: absolute;
-  display: block;
-  height: 1px;
-  background: rgba(244, 241, 232, 0.58);
-  transform-origin: left center;
-}
-
-.art-line-one {
-  top: 62px;
-  left: 75px;
-  width: 225px;
-  transform: rotate(25deg);
-}
-
-.art-line-two {
-  top: 143px;
-  left: 195px;
-  width: 205px;
-  transform: rotate(-23deg);
 }
 
 .art-knowledge {
