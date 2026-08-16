@@ -25,9 +25,12 @@ The main files are:
 index.html   Page structure and content
 styles.css   Responsive visual design
 main.js      Mobile navigation and current-year enhancement
+vendor/      Locally vendored Font Awesome Free CSS and solid icon assets
 ```
 
 There is no application runtime to start and no dependency installation is required.
+Font Awesome Free 6.7.2 is included locally under `vendor/fontawesome/` for offline static
+serving. Its license is included at `vendor/fontawesome/LICENSE.txt`.
 
 ## Customer Deployment Model
 

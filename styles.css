@@ -985,7 +985,7 @@ h1 em {
   border-color: var(--line);
 }
 
-.section-work {
+.section-showcase {
   background: var(--paper);
 }
 
@@ -1039,31 +1039,11 @@ h1 em {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: min(78%, 360px);
-  height: auto;
-  color: rgba(244, 241, 232, 0.86);
+  display: block;
+  color: var(--accent);
+  font-size: clamp(120px, 25vw, 190px);
+  line-height: 1;
   transform: translate(-50%, -52%);
-}
-
-.civic-courthouse path {
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 2;
-  stroke-linecap: square;
-  stroke-linejoin: miter;
-}
-
-.civic-courthouse-roof {
-  fill: var(--accent) !important;
-  fill-opacity: 0.9;
-}
-
-.civic-courthouse-columns {
-  opacity: 0.72;
-}
-
-.civic-courthouse-door {
-  stroke: var(--accent) !important;
 }
 
 .art-word {
