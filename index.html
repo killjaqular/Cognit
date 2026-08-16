@@ -430,35 +430,126 @@
         </div>
       </section>
 
-      <section class="section section-process" id="approach">
+      <section class="section section-workstations" id="approach">
         <div class="container">
-          <div class="section-heading section-heading-light process-heading">
-            <p class="eyebrow eyebrow-light">Approach / Coming later</p>
-            <h2>Specify. Install. Handoff.</h2>
+          <div class="section-heading section-heading-light workstation-heading">
+            <div>
+              <p class="eyebrow eyebrow-light">Private AI / Pre-built workstations</p>
+              <h2>Choose the local AI workstation that fits the work.</h2>
+            </div>
             <p class="heading-aside">
-              This customer-owned deployment service is in development and will be offered in a
-              later phase. The outline below shows the intended delivery model, not a currently
-              available standard service.
+              For now, Cognit provides pre-built, out-of-the-box systems. We buy the selected
+              workstation on your behalf, initialize its local AI stack and network integration,
+              then ship it to your campus, where Cognit completes the on-site installation with
+              your team.
             </p>
           </div>
-          <div class="process-grid">
-            <div class="process-step">
-              <span class="process-number">01</span>
-                <h3>Specify</h3>
-                <p>Map the work, data sensitivity, access, workload, and hardware requirements.</p>
-            </div>
-            <div class="process-connector" aria-hidden="true">&rarr;</div>
-            <div class="process-step">
-              <span class="process-number">02</span>
-                <h3>Install</h3>
-                <p>Install and configure the selected hardware, models, network, and retention boundaries on premises.</p>
-            </div>
-            <div class="process-connector" aria-hidden="true">&rarr;</div>
-            <div class="process-step">
-              <span class="process-number">03</span>
-                <h3>Handoff</h3>
-                <p>Train your team and document ownership, controls, updates, backups, and ongoing maintenance.</p>
-            </div>
+          <div class="workstation-tabs" role="tablist" aria-label="Workstation options">
+            <button class="workstation-tab is-active" type="button" role="tab" aria-selected="true" aria-controls="prebuilt-workstations">
+              Pre-built workstations
+            </button>
+            <button class="workstation-tab" type="button" role="tab" aria-selected="false" aria-disabled="true" disabled>
+              Custom builds <span>Coming soon</span>
+            </button>
+          </div>
+          <div class="workstation-grid" id="prebuilt-workstations" role="tabpanel">
+            <article class="workstation-card">
+              <div class="workstation-image">
+                <span class="workstation-tier">01 / ENTRY</span>
+                <img src="assets/workstations/lenovo-thinkstation-p2-gen2.webp" alt="Lenovo ThinkStation P2 Gen 2 Tower Workstation" width="640" height="1366" loading="lazy" />
+              </div>
+              <div class="workstation-card-copy">
+                <p class="card-kicker">Focused local workflows</p>
+                <h3>Lenovo ThinkStation P2 Gen 2 Tower Workstation</h3>
+                <p>
+                  A practical first node for private document search, summarization, drafting,
+                  structured extraction, and a focused internal assistant.
+                </p>
+                <ul class="workstation-results">
+                  <li>Keep a team's working knowledge inside its own network.</li>
+                  <li>Turn recurring document work into a repeatable local workflow.</li>
+                  <li>Start with one department, then expand as usage proves out.</li>
+                </ul>
+                <div class="workstation-source">
+                  <span>Pre-built / Newegg sourcing</span>
+                  <a href="https://www.newegg.com/p/1VK-0003-1SRG2" target="_blank" rel="noreferrer">View configuration <span aria-hidden="true">&nearr;</span></a>
+                </div>
+              </div>
+            </article>
+
+            <article class="workstation-card workstation-card-featured">
+              <div class="workstation-image">
+                <span class="workstation-tier">02 / WORKING</span>
+                <img src="assets/workstations/corsair-ai-workstation-300.webp" alt="CORSAIR AI WORKSTATION 300 Desktop PC" width="1100" height="1100" loading="lazy" />
+              </div>
+              <div class="workstation-card-copy">
+                <p class="card-kicker">Richer local AI</p>
+                <h3>CORSAIR AI WORKSTATION 300 Desktop PC</h3>
+                <p>
+                  More room for private copilots, longer documents, knowledge retrieval, local
+                  analysis, and creative image workflows without sending prompts or files to a
+                  cloud API.
+                </p>
+                <ul class="workstation-results">
+                  <li>Give more teams access to the same controlled internal knowledge.</li>
+                  <li>Run richer models for analysis, synthesis, and business drafting.</li>
+                  <li>Use local image-generation tools for private creative work.</li>
+                </ul>
+                <div class="workstation-metric">
+                  <strong>~50 tokens/s</strong>
+                  <span>Qwen3.5-35B-A3B on the 128GB configuration</span>
+                </div>
+                <div class="workstation-source">
+                  <span>Pre-built / Newegg sourcing target</span>
+                  <span class="workstation-source-links">
+                    <a href="https://www.newegg.com/p/pl?d=CORSAIR+AI+WORKSTATION+300" target="_blank" rel="noreferrer">Newegg search <span aria-hidden="true">&nearr;</span></a>
+                    <a href="https://www.corsair.com/us/en/p/ai-workstations/cs-9080002-na/corsair-ai-workstation-300-amd-ryzen-ai-max-395-processor-amd-radeon-8060s-igpu-up-to-96gb-vram-128gb-lpddr5x-memory-1tb-m-2-ssd-win11-home-cs-9080002-na" target="_blank" rel="noreferrer">Product details <span aria-hidden="true">&nearr;</span></a>
+                  </span>
+                </div>
+              </div>
+            </article>
+
+            <article class="workstation-card workstation-card-premium">
+              <div class="workstation-image">
+                <span class="workstation-tier">03 / ADVANCED</span>
+                <img src="assets/workstations/nvidia-dgx-spark.webp" alt="NVIDIA DGX SPARK desktop AI supercomputer" width="640" height="470" loading="lazy" />
+              </div>
+              <div class="workstation-card-copy">
+                <p class="card-kicker">Serious private inference</p>
+                <h3>NVIDIA DGX SPARK</h3>
+                <p>
+                  A compact AI supercomputer for larger internal models, always-on agents,
+                  computer-vision projects, and high-value proprietary knowledge that needs to
+                  stay close to the people using it.
+                </p>
+                <ul class="workstation-results">
+                  <li>Run and refine models up to 200B parameters over closed business data, depending on setup.</li>
+                  <li>Generate images and test visual models locally through tools such as ComfyUI.</li>
+                  <li>Build private retrieval and agent workflows without recurring token fees.</li>
+                </ul>
+                <div class="workstation-metric">
+                  <strong>~64 tokens/s</strong>
+                  <span>GPT-OSS 120B; ~64 seconds for a 1600x900 Flux.2 Klein 9B image</span>
+                </div>
+                <div class="workstation-source">
+                  <span>Pre-built / Newegg sourcing</span>
+                  <a href="https://www.newegg.com/pny-technologies-inc-dgx-personal-ai-computer-20-core-arm-10-cortex-x925-10-cortex-a725-arm-nvdgxspark-pb/p/N82E16856987001" target="_blank" rel="noreferrer">Newegg listing <span aria-hidden="true">&nearr;</span></a>
+                </div>
+                <a class="workstation-reference" href="https://www.microcenter.com/product/699008/nvidia-dgx-spark" target="_blank" rel="noreferrer">Micro Center reference <span aria-hidden="true">&nearr;</span></a>
+              </div>
+            </article>
+          </div>
+          <p class="workstation-note">
+            Performance figures are representative benchmarks, not guarantees: model, quantization,
+            context length, workflow, and network setup all affect results. Product availability,
+            final configuration, purchase price, and campus deployment details are confirmed for
+            each customer before ordering. DGX Spark figures reference NVIDIA's published model
+            support and <a href="https://www.tomshardware.com/pc-components/gpus/corsair-ai-workstation-300-review" target="_blank" rel="noreferrer">independent llama.cpp and ComfyUI testing</a>.
+          </p>
+          <div class="workstation-flow">
+            <span>01 / Buy</span>
+            <span>02 / Prepare and integrate</span>
+            <span>03 / Ship to campus</span>
           </div>
         </div>
       </section>

@@ -98,22 +98,23 @@ COGNIT_TLS_ENABLED="true"
 # Customer-owned, on-premises AI deployment
 # -----------------------------------------------------------------------------
 
-# The public Cognit website is hosted separately. Customer workloads are intended to run
-# on hardware purchased and owned by the customer, installed on the customer's premises.
-COGNIT_CUSTOMER_DEPLOYMENT_SERVICE_STATUS="in-development"
+# The public Cognit website is hosted separately. The initial catalog is limited to pre-built
+# workstations purchased by Cognit on the customer's behalf, prepared locally, and deployed on
+# the customer's premises. The customer owns the hardware after purchase.
+COGNIT_CUSTOMER_DEPLOYMENT_SERVICE_STATUS="prebuilt-workstations"
 COGNIT_CUSTOMER_DEPLOYMENT_MODEL="customer-owned-on-premises"
 COGNIT_CUSTOMER_HARDWARE_OWNER="customer"
-COGNIT_CUSTOMER_HARDWARE_PURCHASER="customer"
+COGNIT_CUSTOMER_HARDWARE_PURCHASER="cognit-on-behalf-of-customer"
 COGNIT_CUSTOMER_HARDWARE_LOCATION="customer-premises"
-COGNIT_CUSTOMER_HARDWARE_MODEL="[Customer-selected hardware]"
-COGNIT_CUSTOMER_HARDWARE_SPECIFICATION="engagement-defined"
+COGNIT_CUSTOMER_HARDWARE_MODEL="pre-built-workstation-catalog"
+COGNIT_CUSTOMER_HARDWARE_SPECIFICATION="catalog-selection"
 COGNIT_CUSTOMER_HOSTNAME="cognit-ai"
 
 # 192.0.2.0/24 is reserved for documentation and is not a real customer network address.
 # Replace this with the customer-assigned local address during installation.
 COGNIT_CUSTOMER_HOST_IP="192.0.2.10"
 COGNIT_CUSTOMER_NETWORK_CIDR="192.0.2.0/24"
-COGNIT_IMPLEMENTATION_PHASES="specify,install,train,handoff"
+COGNIT_IMPLEMENTATION_PHASES="assess,select,purchase,prepare,ship,install,train,handoff"
 COGNIT_TRAINING_INCLUDED="true"
 COGNIT_CUSTOMER_MAINTENANCE_OWNER="customer"
 COGNIT_PROVIDER_HARDWARE_OWNER="none"
@@ -121,6 +122,10 @@ COGNIT_PROVIDER_HOSTING_RESPONSIBILITY="none"
 COGNIT_PROVIDER_ONGOING_MAINTENANCE="available-by-support-plan"
 COGNIT_REMOTE_ACCESS_DEFAULT="false"
 COGNIT_REMOTE_SUPPORT_MODE="customer-authorized"
+COGNIT_WORKSTATION_CATALOG_STATUS="prebuilt-only"
+COGNIT_WORKSTATION_CUSTOM_BUILDS_STATUS="coming-soon"
+COGNIT_WORKSTATION_INITIAL_SOURCE="newegg"
+COGNIT_WORKSTATION_SHIPPING_DESTINATION="customer-campus"
 
 # -----------------------------------------------------------------------------
 # Local AI and data-control policy defaults

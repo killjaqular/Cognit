@@ -25,6 +25,7 @@ The main files are:
 index.html   Page structure and content
 styles.css   Responsive visual design
 main.js      Mobile navigation and current-year enhancement
+assets/      Local workstation product preview images
 vendor/      Locally vendored Font Awesome Free CSS and solid icon assets
 ```
 
@@ -38,19 +39,29 @@ The public Cognit website is hosted as a normal static site. Customer AI systems
 different model: Cognit does not currently buy, own, or operate a shared hardware fleet for
 customers.
 
-The intended engagement flow is:
+The current pre-built workstation engagement flow is:
 
 1. Assess the customer's work, data, privacy requirements, and operating environment.
-2. Specify the hardware, model, network, storage, and access requirements.
-3. The customer purchases and owns the required hardware.
-4. Cognit installs and configures the system on the customer's premises.
-5. Cognit provides training and operational documentation.
-6. The customer owns ongoing access management, updates, backups, maintenance, and day-to-day operation.
+2. Select a pre-built, out-of-the-box workstation from the catalog.
+3. Cognit purchases the selected system on the customer's behalf.
+4. Cognit prepares the workstation, initializes local AI, and configures the agreed network and business integration.
+5. Cognit ships the prepared workstation to the customer's campus and completes or supports on-site deployment.
+6. Cognit provides training and operational documentation.
+7. The customer owns the hardware, access management, updates, backups, maintenance, and day-to-day operation.
 
 Ongoing support or remote assistance can be defined separately for an engagement. It is not
 assumed that Cognit hosts the customer's workloads or retains remote administrative access.
-This customer-owned deployment service is currently in development and will be offered in a
-later phase rather than as a standard service today.
+Custom workstation builds are not offered yet and are marked as coming soon on the site.
+
+## Workstation Catalog Assets
+
+Product preview images are stored locally under `assets/workstations/` so the static site does
+not depend on retailer image URLs at runtime. The cards link to the current product or sourcing
+pages, where availability and exact configurations should be confirmed before purchase.
+
+- Lenovo ThinkStation P2 Gen 2: [Newegg listing](https://www.newegg.com/p/1VK-0003-1SRG2)
+- CORSAIR AI WORKSTATION 300: [Corsair product details](https://www.corsair.com/us/en/p/ai-workstations/cs-9080002-na/corsair-ai-workstation-300-amd-ryzen-ai-max-395-processor-amd-radeon-8060s-igpu-up-to-96gb-vram-128gb-lpddr5x-memory-1tb-m-2-ssd-win11-home-cs-9080002-na); [Newegg sourcing search](https://www.newegg.com/p/pl?d=CORSAIR+AI+WORKSTATION+300)
+- NVIDIA DGX SPARK: [Newegg listing](https://www.newegg.com/pny-technologies-inc-dgx-personal-ai-computer-20-core-arm-10-cortex-x925-10-cortex-a725-arm-nvdgxspark-pb/p/N82E16856987001) and [Micro Center reference](https://www.microcenter.com/product/699008/nvidia-dgx-spark)
 
 ## Support Pricing
 
