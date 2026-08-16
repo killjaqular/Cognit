@@ -1,0 +1,182 @@
+# Cognit example configuration
+#
+# Copy this file to `cognit.conf` for local/deployment-specific values:
+#
+#   cp cognit.conf.example cognit.conf
+#
+# The current site is static and does not parse this file automatically. The values below
+# are the shared configuration reference for the site, hosting setup, and future dynamic
+# services. Copy the relevant values into index.html, the public-site hosting provider's
+# settings, or a customer deployment plan.
+# Never commit real passwords, API keys, or private connection strings.
+
+# -----------------------------------------------------------------------------
+# Site identity
+# -----------------------------------------------------------------------------
+
+COGNIT_NAME="Cognit"
+COGNIT_TAGLINE="Customer-hosted AI, private data, and useful systems"
+COGNIT_DESCRIPTION="Cognit helps organizations plan and deploy useful AI and data systems on customer-owned hardware installed on their premises."
+COGNIT_SITE_URL="https://www.your-domain.example"
+COGNIT_PUBLIC_HOST="www.your-domain.example"
+COGNIT_CONTACT_EMAIL="hello@your-domain.example"
+COGNIT_LOCATION="[Your city / region]"
+COGNIT_TIMEZONE="[Your timezone]"
+COGNIT_LEGAL_DETAILS="[Replace with your legal or business details]"
+
+# -----------------------------------------------------------------------------
+# Hosted contact form
+# -----------------------------------------------------------------------------
+
+# Supported examples include Formspree, Netlify Forms, Basin, and similar services.
+COGNIT_FORM_PROVIDER="formspree"
+COGNIT_FORM_ENDPOINT="https://formspree.io/f/REPLACE_WITH_FORM_ID"
+COGNIT_FORM_SUBJECT="New Cognit consultation inquiry"
+COGNIT_FORM_REDIRECT_URL=""
+COGNIT_FORM_SPAM_PROTECTION="provider-default"
+COGNIT_FORM_RECIPIENT_EMAIL="hello@your-domain.example"
+
+# Initial inquiries use a hosted provider. Do not use this form for confidential,
+# regulated, or proprietary customer data. Move sensitive intake into a customer-controlled
+# deployment when a private inquiry workflow is implemented.
+COGNIT_FORM_SENSITIVE_DATA_ALLOWED="false"
+
+# -----------------------------------------------------------------------------
+# Consultation and support pricing
+# -----------------------------------------------------------------------------
+
+# Every support tier starts with a free consultation. Prices are starting points and
+# final scope is set after the consultation.
+COGNIT_PRICING_CURRENCY="USD"
+COGNIT_FREE_CONSULTATION_REQUIRED="true"
+COGNIT_FREE_CONSULTATION_DURATION_MINUTES="60"
+COGNIT_SUPPORT_PRICING_STATUS="starting-points"
+COGNIT_SUPPORT_BILLING_CADENCE="monthly"
+COGNIT_SUPPORT_ONETIME_MARKUP_PERCENT="60"
+COGNIT_SUPPORT_HANDS_ON_AVAILABLE="true"
+
+COGNIT_SUPPORT_TIER_1_NAME="Foundation support"
+COGNIT_SUPPORT_TIER_1_MONTHLY_PRICE="1000"
+COGNIT_SUPPORT_TIER_1_ONETIME_WRITE_DEPLOY_PRICE="1600"
+COGNIT_SUPPORT_TIER_1_MONTHLY_HOURS="1"
+COGNIT_SUPPORT_TIER_1_SCOPE="Questions, troubleshooting, and maintenance guidance"
+
+COGNIT_SUPPORT_TIER_2_NAME="Working support"
+COGNIT_SUPPORT_TIER_2_MONTHLY_PRICE="1250"
+COGNIT_SUPPORT_TIER_2_ONETIME_WRITE_DEPLOY_PRICE="2000"
+COGNIT_SUPPORT_TIER_2_MONTHLY_HOURS="2"
+COGNIT_SUPPORT_TIER_2_SCOPE="Priority issue review, minor changes, and operating review"
+
+COGNIT_SUPPORT_TIER_3_NAME="Embedded support"
+COGNIT_SUPPORT_TIER_3_MONTHLY_PRICE="1500"
+COGNIT_SUPPORT_TIER_3_ONETIME_WRITE_DEPLOY_PRICE="2400"
+COGNIT_SUPPORT_TIER_3_MONTHLY_HOURS="4"
+COGNIT_SUPPORT_TIER_3_SCOPE="Hands-on optimization, training refreshers, and roadmap review"
+
+COGNIT_SUPPORT_CUSTOM_NAME="Special support"
+COGNIT_SUPPORT_CUSTOM_MONTHLY_PRICE="contact-for-quote"
+COGNIT_SUPPORT_CUSTOM_ONETIME_WRITE_DEPLOY_PRICE="contact-for-quote"
+COGNIT_SUPPORT_CUSTOM_SCOPE="Complex, multi-system, sensitive, or dedicated engagements"
+
+# -----------------------------------------------------------------------------
+# Static hosting and DNS
+# -----------------------------------------------------------------------------
+
+COGNIT_PUBLIC_SITE_HOSTING_PROVIDER="cloudflare-pages"
+
+# 203.0.113.0/24 is reserved for documentation and is not a real public address.
+# Replace this with the actual host IP only if a VPS or other IP-based host is used.
+COGNIT_HOST_PUBLIC_IP="203.0.113.10"
+COGNIT_HOST_IPV6=""
+COGNIT_HTTP_PORT="80"
+COGNIT_HTTPS_PORT="443"
+COGNIT_DNS_ROOT_RECORD="A"
+COGNIT_DNS_WWW_RECORD="CNAME"
+COGNIT_TLS_ENABLED="true"
+
+# -----------------------------------------------------------------------------
+# Customer-owned, on-premises AI deployment
+# -----------------------------------------------------------------------------
+
+# The public Cognit website is hosted separately. Customer workloads are intended to run
+# on hardware purchased and owned by the customer, installed on the customer's premises.
+COGNIT_CUSTOMER_DEPLOYMENT_SERVICE_STATUS="in-development"
+COGNIT_CUSTOMER_DEPLOYMENT_MODEL="customer-owned-on-premises"
+COGNIT_CUSTOMER_HARDWARE_OWNER="customer"
+COGNIT_CUSTOMER_HARDWARE_PURCHASER="customer"
+COGNIT_CUSTOMER_HARDWARE_LOCATION="customer-premises"
+COGNIT_CUSTOMER_HARDWARE_MODEL="[Customer-selected hardware]"
+COGNIT_CUSTOMER_HARDWARE_SPECIFICATION="engagement-defined"
+COGNIT_CUSTOMER_HOSTNAME="cognit-ai"
+
+# 192.0.2.0/24 is reserved for documentation and is not a real customer network address.
+# Replace this with the customer-assigned local address during installation.
+COGNIT_CUSTOMER_HOST_IP="192.0.2.10"
+COGNIT_CUSTOMER_NETWORK_CIDR="192.0.2.0/24"
+COGNIT_IMPLEMENTATION_PHASES="specify,install,train,handoff"
+COGNIT_TRAINING_INCLUDED="true"
+COGNIT_CUSTOMER_MAINTENANCE_OWNER="customer"
+COGNIT_PROVIDER_HARDWARE_OWNER="none"
+COGNIT_PROVIDER_HOSTING_RESPONSIBILITY="none"
+COGNIT_PROVIDER_ONGOING_MAINTENANCE="available-by-support-plan"
+COGNIT_REMOTE_ACCESS_DEFAULT="false"
+COGNIT_REMOTE_SUPPORT_MODE="customer-authorized"
+
+# -----------------------------------------------------------------------------
+# Local AI and data-control policy defaults
+# -----------------------------------------------------------------------------
+
+# These values describe the intended default posture for customer-owned deployments.
+# They are policy/configuration placeholders, not a substitute for a security review.
+COGNIT_AI_DEPLOYMENT_MODE="customer-owned-on-premises"
+COGNIT_AI_EXTERNAL_MODEL_APIS_ENABLED="false"
+COGNIT_AI_TELEMETRY_ENABLED="false"
+COGNIT_AI_CUSTOMER_DATA_TRAINING_ENABLED="false"
+COGNIT_AI_NETWORK_ACCESS="customer-defined"
+COGNIT_DATA_RESIDENCY="customer-defined"
+COGNIT_DATA_ACCESS_OWNER="customer"
+COGNIT_DATA_RETENTION_POLICY="customer-defined"
+COGNIT_DATA_ENCRYPTION_AT_REST="customer-defined"
+COGNIT_DATA_ENCRYPTION_IN_TRANSIT="true"
+
+# -----------------------------------------------------------------------------
+# Future application service
+# -----------------------------------------------------------------------------
+
+# The current site does not have a backend. Keep these disabled until a concrete
+# server-side requirement exists, such as custom lead processing or a client portal.
+COGNIT_BACKEND_ENABLED="false"
+COGNIT_BACKEND_BIND_ADDRESS="127.0.0.1"
+COGNIT_BACKEND_PORT="8080"
+COGNIT_BACKEND_PUBLIC_URL="https://api.your-domain.example"
+COGNIT_BACKEND_ALLOWED_ORIGIN="https://www.your-domain.example"
+
+# -----------------------------------------------------------------------------
+# Future inquiry storage
+# -----------------------------------------------------------------------------
+
+# The current contact form uses a hosted provider. These values are a future
+# configuration contract for an optional database-backed inquiry workflow hosted on
+# customer-owned infrastructure.
+COGNIT_INQUIRY_STORAGE="hosted-form"
+COGNIT_DATABASE_ENABLED="false"
+COGNIT_DATABASE_ENGINE="postgresql"
+COGNIT_DATABASE_OWNER="customer"
+COGNIT_DATABASE_LOCATION="customer-premises"
+COGNIT_DATABASE_HOST="127.0.0.1"
+COGNIT_DATABASE_PORT="5432"
+COGNIT_DATABASE_NAME="cognit"
+COGNIT_DATABASE_USER="cognit"
+COGNIT_DATABASE_PASSWORD="change-me"
+COGNIT_DATABASE_URL="postgresql://cognit:change-me@127.0.0.1:5432/cognit"
+COGNIT_INQUIRY_TABLE="inquiries"
+COGNIT_INQUIRY_RETENTION_DAYS="365"
+
+# -----------------------------------------------------------------------------
+# Runtime and operations
+# -----------------------------------------------------------------------------
+
+COGNIT_ENVIRONMENT="development"
+COGNIT_LOG_LEVEL="info"
+COGNIT_BACKUP_ENABLED="false"
+COGNIT_ANALYTICS_ENABLED="false"
