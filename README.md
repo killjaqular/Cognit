@@ -56,12 +56,12 @@ Custom workstation builds are not offered yet and are marked as coming soon on t
 ## Workstation Catalog Assets
 
 Product preview images are stored locally under `assets/workstations/` so the static site does
-not depend on retailer image URLs at runtime. The cards link to the current product or sourcing
-pages, where availability and exact configurations should be confirmed before purchase.
+not depend on retailer image URLs at runtime. All current workstation product and image sources
+are Newegg listings; availability and exact configurations should be confirmed before purchase.
 
 - Lenovo ThinkStation P2 Gen 2: [Newegg listing](https://www.newegg.com/p/1VK-0003-1SRG2)
-- CORSAIR AI WORKSTATION 300: [Corsair product details](https://www.corsair.com/us/en/p/ai-workstations/cs-9080002-na/corsair-ai-workstation-300-amd-ryzen-ai-max-395-processor-amd-radeon-8060s-igpu-up-to-96gb-vram-128gb-lpddr5x-memory-1tb-m-2-ssd-win11-home-cs-9080002-na); [Newegg sourcing search](https://www.newegg.com/p/pl?d=CORSAIR+AI+WORKSTATION+300)
-- NVIDIA DGX SPARK: [Newegg listing](https://www.newegg.com/pny-technologies-inc-dgx-personal-ai-computer-20-core-arm-10-cortex-x925-10-cortex-a725-arm-nvdgxspark-pb/p/N82E16856987001) and [Micro Center reference](https://www.microcenter.com/product/699008/nvidia-dgx-spark)
+- ADAMANT 24-Core AI Learning Workstation: [Newegg listing](https://www.newegg.com/p/3D5-002T-00RS4)
+- NVIDIA DGX SPARK: [Newegg listing](https://www.newegg.com/pny-technologies-inc-dgx-personal-ai-computer-20-core-arm-10-cortex-x925-10-cortex-a725-arm-nvdgxspark-pb/p/N82E16856987001)
 
 ## Support Pricing
 

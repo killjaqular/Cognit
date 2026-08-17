@@ -1363,30 +1363,6 @@ h1 em {
   border-radius: 50%;
 }
 
-.workstation-metric {
-  display: flex;
-  gap: 10px;
-  align-items: baseline;
-  padding: 12px 0;
-  margin: 0 0 16px;
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-}
-
-.workstation-metric strong {
-  flex: 0 0 auto;
-  color: var(--coral);
-  font-family: var(--mono);
-  font-size: 18px;
-}
-
-.workstation-metric span {
-  color: var(--muted);
-  font-family: var(--mono);
-  font-size: 9px;
-  line-height: 1.4;
-}
-
 .workstation-source {
   display: flex;
   gap: 12px;
@@ -1404,27 +1380,11 @@ h1 em {
   color: var(--muted);
 }
 
-.workstation-source-links {
-  display: inline-flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-}
-
-.workstation-source a,
-.workstation-reference {
+.workstation-source a {
   color: var(--ink);
   font-weight: 700;
   text-decoration: underline;
   text-underline-offset: 3px;
-}
-
-.workstation-reference {
-  display: block;
-  margin-top: 12px;
-  color: var(--muted);
-  font-family: var(--mono);
-  font-size: 9px;
 }
 
 .workstation-note {
@@ -1434,12 +1394,6 @@ h1 em {
   font-family: var(--mono);
   font-size: 10px;
   line-height: 1.55;
-}
-
-.workstation-note a {
-  color: var(--accent);
-  text-decoration: underline;
-  text-underline-offset: 3px;
 }
 
 .workstation-flow {
