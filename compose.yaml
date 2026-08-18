@@ -1,0 +1,9 @@
+services:
+  cognit:
+    image: cognit:local
+    build:
+      context: .
+      dockerfile: Dockerfile.Cognit
+    ports:
+      - "${COGNIT_HOST_PORT:-8080}:80"
+    restart: unless-stopped

@@ -1,0 +1,6 @@
+# Local deployment configuration and secrets
+cognit.env
+cognit.conf
+.env
+.env.*
+!.env.example

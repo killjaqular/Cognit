@@ -27,6 +27,9 @@ styles.css   Responsive visual design
 main.js      Mobile navigation and current-year enhancement
 assets/      Local workstation product preview images
 vendor/      Locally vendored Font Awesome Free CSS and solid icon assets
+Dockerfile.Cognit  Production container definition for the static site
+compose.yaml       Docker Compose service definition
+Makefile           Docker build and container lifecycle commands
 ```
 
 There is no application runtime to start and no dependency installation is required.
@@ -98,9 +101,9 @@ cp cognit.conf.example cognit.conf
 The local `cognit.conf` file is ignored by Git. Do not put real passwords, API keys, or private
 database connection strings in `cognit.conf.example` or commit them in `cognit.conf`.
 
-The current static page does not parse shell configuration automatically. Until a build or
-deployment layer is introduced, copy the relevant values manually into `index.html` or into
-the hosting provider's project settings. In particular:
+The current static page does not parse shell configuration automatically. The Docker image serves
+the files as-is and does not substitute configuration values into the HTML. Copy the relevant
+values manually into `index.html` or into the hosting provider's project settings. In particular:
 
 - `COGNIT_SITE_URL`, `COGNIT_PUBLIC_HOST`, and `COGNIT_CONTACT_EMAIL` correspond to visible site and contact placeholders.
 - `COGNIT_FORM_ENDPOINT` is the hosted-form action that must replace the placeholder in `index.html`.
@@ -156,6 +159,61 @@ http://localhost:8000
 Opening `index.html` directly may work for the page itself, but a local HTTP server gives a
 closer match to how the site will be served publicly.
 
+## Run With Docker
+
+The site has no dependency installation, build step, or application server. `Dockerfile.Cognit`
+uses nginx to serve the static files on port 80. The Makefile wraps Docker Compose for the common
+image and container operations:
+
+```bash
+make
+```
+
+Running `make` without a target displays the available commands. `make help` displays the same
+help text. To build and start the site:
+
+```bash
+make build
+make run
+```
+
+`make run` builds the image if needed, starts the container in the background, and publishes the
+container's port 80 at `http://localhost:8080` by default. The image includes an HTTP health check
+against the site root.
+
+Follow the container logs:
+
+```bash
+make logs
+```
+
+Stop the container and remove the Cognit image, containers, volumes, and Compose orphans created
+for this project:
+
+```bash
+make clean
+```
+
+The cleanup target is scoped to this Compose project and does not run a system-wide Docker prune.
+To use a different host port, set `COGNIT_HOST_PORT` when starting the service:
+
+```bash
+COGNIT_HOST_PORT=8081 make run
+```
+
+The equivalent direct Compose command is:
+
+```bash
+docker compose up -d --build
+```
+
+`cognit.env` is intentionally not copied into the image or loaded by the Dockerfile, Compose file,
+or Makefile. The current container runs nginx only, and neither nginx nor the browser-side
+JavaScript consumes the `COGNIT_*` values. Passing `--env-file ./cognit.env` to Docker is therefore
+harmless but has no effect on the rendered page. Use an env file only after adding a server-side
+process or a startup templating step that explicitly reads the variables. Keep deployment values
+outside the image and never commit secrets.
+
 ## Deploy Publicly
 
 This site can be deployed to Cloudflare Pages, Netlify, Vercel, GitHub Pages, or another
@@ -179,8 +237,9 @@ The usual flow is:
 7. Follow the provider's DNS instructions for the root domain and `www` host.
 8. Confirm that HTTPS is active.
 
-The hosting provider should handle CDN delivery and HTTPS certificate renewal. A VPS,
-Docker Compose stack, reverse proxy, and Go server are not needed for this version of Cognit.
+The hosting provider should handle CDN delivery and HTTPS certificate renewal. Docker is an
+optional self-hosting path; if it is used publicly, put the container behind a reverse proxy or
+load balancer that handles HTTPS. A backend or database is not needed for this version of Cognit.
 
 ## Replace Before Launch
 

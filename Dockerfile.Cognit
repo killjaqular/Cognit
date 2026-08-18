@@ -1,0 +1,17 @@
+# syntax=docker/dockerfile:1
+
+FROM nginx:1.27-alpine
+
+WORKDIR /usr/share/nginx/html
+
+# Remove the default nginx landing page before copying the Cognit site.
+RUN rm -rf ./*
+
+COPY index.html styles.css main.js cognit_logo_lines.png ./
+COPY assets/ ./assets/
+COPY vendor/ ./vendor/
+
+EXPOSE 80
+
+HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
+  CMD wget -q -O /dev/null http://127.0.0.1/ || exit 1
