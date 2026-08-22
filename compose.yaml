@@ -6,4 +6,13 @@ services:
       dockerfile: Dockerfile.Cognit
     ports:
       - "${COGNIT_HOST_PORT:-8080}:80"
+    environment:
+      COGNIT_SITE_URL: "${COGNIT_SITE_URL:-https://www.your-domain.example}"
+      COGNIT_CONTACT_EMAIL: "${COGNIT_CONTACT_EMAIL:-consult@cognit.com}"
+      COGNIT_LOCATION: "${COGNIT_LOCATION:-[Your city / region]}"
+      COGNIT_LEGAL_DETAILS: "${COGNIT_LEGAL_DETAILS:-[Replace with your legal or business details]}"
+      COGNIT_FORM_PROVIDER: "${COGNIT_FORM_PROVIDER:-formspree}"
+      COGNIT_FORM_ENDPOINT: "${COGNIT_FORM_ENDPOINT:-https://formspree.io/f/REPLACE_WITH_FORM_ID}"
+      COGNIT_FORM_SUBJECT: "${COGNIT_FORM_SUBJECT:-New Cognit consultation inquiry}"
+      COGNIT_FORM_REDIRECT_URL: "${COGNIT_FORM_REDIRECT_URL:-}"
     restart: unless-stopped

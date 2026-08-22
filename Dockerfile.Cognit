@@ -7,9 +7,12 @@ WORKDIR /usr/share/nginx/html
 # Remove the default nginx landing page before copying the Cognit site.
 RUN rm -rf ./*
 
-COPY index.html styles.css main.js cognit_logo_lines.png ./
+COPY index.html styles.css main.js site-config.js cognit_logo_lines.png ./
 COPY assets/ ./assets/
 COPY vendor/ ./vendor/
+COPY cognit-config-entrypoint.sh /docker-entrypoint.d/40-cognit-config.sh
+
+RUN chmod +x /docker-entrypoint.d/40-cognit-config.sh
 
 EXPOSE 80
 

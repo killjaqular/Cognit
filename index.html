@@ -13,11 +13,14 @@
       property="og:description"
       content="Private AI, privacy-conscious data engineering, and systems consulting for organizations that need control of their information."
     />
+    <meta property="og:url" content="https://www.your-domain.example" />
+    <link rel="canonical" href="https://www.your-domain.example" />
     <title>Cognit - Private AI and private data systems</title>
     <link rel="icon" href="cognit_logo_lines.png" type="image/png" />
     <link rel="stylesheet" href="vendor/fontawesome/css/fontawesome.min.css" />
     <link rel="stylesheet" href="vendor/fontawesome/css/solid.min.css" />
     <link rel="stylesheet" href="styles.css" />
+    <script src="site-config.js"></script>
     <script type="module" src="main.js"></script>
   </head>
   <body>
@@ -552,11 +555,11 @@
             <div class="contact-details">
               <div>
                 <span class="detail-label">Email</span>
-                <a href="mailto:consult@cognit.com">consult@cognit.com</a>
+                <a data-contact-email href="mailto:consult@cognit.com">consult@cognit.com</a>
               </div>
               <div>
                 <span class="detail-label">Based in</span>
-                <p>[Your city / region]</p>
+                <p data-contact-location>[Your city / region]</p>
               </div>
             </div>
           </div>
@@ -566,9 +569,9 @@
               <span class="form-panel-index">INQUIRY / 01</span>
               <span class="form-panel-status"><i></i> Open for conversation</span>
             </div>
-            <!-- Replace the action URL with the endpoint from your hosted form provider. -->
-            <form action="https://formspree.io/f/REPLACE_WITH_FORM_ID" method="post">
-              <input type="hidden" name="_subject" value="New Cognit consultation inquiry" />
+            <!-- The endpoint and provider values are supplied by site-config.js at startup. -->
+            <form id="contact-form" action="https://formspree.io/f/REPLACE_WITH_FORM_ID" method="post">
+              <input type="hidden" name="_subject" value="New Cognit consultation inquiry" data-form-subject />
               <div class="form-row">
                 <div class="field">
                   <label for="name">Name <span aria-hidden="true">*</span></label>
@@ -605,7 +608,7 @@
               <button class="button button-dark form-submit" type="submit">
                 Send inquiry <span aria-hidden="true">&nearr;</span>
               </button>
-              <p class="form-note">Form endpoint placeholder - do not include confidential, regulated, or proprietary information in this initial inquiry.</p>
+              <p class="form-note" data-form-note>Form endpoint placeholder - do not include confidential, regulated, or proprietary information in this initial inquiry.</p>
             </form>
           </div>
         </div>
@@ -624,7 +627,7 @@
       <div class="container footer-bottom">
         <span>&copy; <span id="current-year"></span> Cognit</span>
         <span>ARTIFICIAL INTELLIGENCE / MACHINE LEARNING / DATA ENGINEERING</span>
-        <span>[Replace with your legal or business details]</span>
+        <span data-contact-legal>[Replace with your legal or business details]</span>
       </div>
     </footer>
   </body>

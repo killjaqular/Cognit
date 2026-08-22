@@ -4,6 +4,8 @@
 
 COMPOSE ?= docker compose
 SERVICE ?= cognit
+ENV_FILE ?= cognit.env
+COMPOSE_ENV_ARGS := $(if $(wildcard $(ENV_FILE)),--env-file $(ENV_FILE),)
 
 help:
 	@printf '%s\n' \
@@ -11,16 +13,17 @@ help:
 		'  make build  Build the Cognit image' \
 		'  make run    Build and start the Cognit container' \
 		'  make logs   Follow the Cognit container logs' \
-		'  make clean  Stop and remove the Cognit container and image'
+		'  make clean  Stop and remove the Cognit container and image' \
+		'  ENV_FILE=... make run  Use a different public config file'
 
 build:
-	$(COMPOSE) build $(SERVICE)
+	$(COMPOSE) $(COMPOSE_ENV_ARGS) build $(SERVICE)
 
 run:
-	$(COMPOSE) up -d --build $(SERVICE)
+	$(COMPOSE) $(COMPOSE_ENV_ARGS) up -d --build $(SERVICE)
 
 clean:
-	$(COMPOSE) down --rmi all --volumes --remove-orphans
+	$(COMPOSE) $(COMPOSE_ENV_ARGS) down --rmi all --volumes --remove-orphans
 
 logs:
-	$(COMPOSE) logs -f $(SERVICE)
+	$(COMPOSE) $(COMPOSE_ENV_ARGS) logs -f $(SERVICE)

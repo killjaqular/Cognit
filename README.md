@@ -25,11 +25,13 @@ The main files are:
 index.html   Page structure and content
 styles.css   Responsive visual design
 main.js      Mobile navigation and current-year enhancement
+site-config.js  Public runtime configuration defaults
 assets/      Local workstation product preview images
 vendor/      Locally vendored Font Awesome Free CSS and solid icon assets
 Dockerfile.Cognit  Production container definition for the static site
 compose.yaml       Docker Compose service definition
 Makefile           Docker build and container lifecycle commands
+cognit.env.example Public deployment configuration template
 ```
 
 There is no application runtime to start and no dependency installation is required.
@@ -88,30 +90,28 @@ that ownership.
 
 ## Configuration Reference
 
-`cognit.conf.example` is the shared example configuration file. It contains default values
-for the current static site as well as disabled placeholders for a possible future host,
-backend, and inquiry database.
+`cognit.env.example` is the public deployment configuration used by the Docker/Compose workflow.
+Only settings consumed by the current website or its container are included. Future backend,
+database, and customer-deployment settings should be added when the corresponding service exists.
 
-Create a local copy when working with real deployment values:
+Create the public deployment file when working with Docker:
 
 ```bash
-cp cognit.conf.example cognit.conf
+cp cognit.env.example cognit.env
 ```
 
-The local `cognit.conf` file is ignored by Git. Do not put real passwords, API keys, or private
-database connection strings in `cognit.conf.example` or commit them in `cognit.conf`.
+The local `cognit.env` and legacy `cognit.conf` files are ignored by Git. Do not put SMTP
+passwords, API keys, database passwords, or private connection strings in either local file. The
+recipient mailbox and provider credentials belong in the selected hosted form or email provider's
+dashboard.
 
-The current static page does not parse shell configuration automatically. The Docker image serves
-the files as-is and does not substitute configuration values into the HTML. Copy the relevant
-values manually into `index.html` or into the hosting provider's project settings. In particular:
+The page loads public values from `site-config.js`. Docker regenerates that file at container
+startup from selected values in `cognit.env`; static hosts can edit `site-config.js` directly or
+generate it during their provider's build step. In particular:
 
-- `COGNIT_SITE_URL`, `COGNIT_PUBLIC_HOST`, and `COGNIT_CONTACT_EMAIL` correspond to visible site and contact placeholders.
-- `COGNIT_FORM_ENDPOINT` is the hosted-form action that must replace the placeholder in `index.html`.
-- `COGNIT_PUBLIC_SITE_HOSTING_PROVIDER` and `COGNIT_HOST_PUBLIC_IP` describe hosting for the public Cognit website only.
-- `COGNIT_CUSTOMER_*` describes the customer-owned, on-premises deployment model, including hardware ownership, installation, training, and maintenance responsibility.
-- `COGNIT_SUPPORT_*` describes the free consultation requirement, starting monthly support prices, one-time write-and-deploy prices, and support scope placeholders.
-- `COGNIT_AI_*` and `COGNIT_DATA_*` describe the intended customer-hosting, data-residency, access, retention, and telemetry defaults for future implementations.
-- `COGNIT_BACKEND_*` and `COGNIT_DATABASE_*` are future configuration values and remain disabled while the site is static.
+- `COGNIT_SITE_URL`, `COGNIT_CONTACT_EMAIL`, `COGNIT_LOCATION`, and `COGNIT_LEGAL_DETAILS` configure public site presentation and metadata.
+- `COGNIT_HOST_PORT` controls the local Docker host port only; the container continues to listen on port 80.
+- `COGNIT_FORM_PROVIDER`, `COGNIT_FORM_ENDPOINT`, `COGNIT_FORM_SUBJECT`, and `COGNIT_FORM_REDIRECT_URL` configure the hosted form integration.
 
 The local-AI and on-premises settings are policy defaults, not a security guarantee. A real
 engagement still needs an explicit review of infrastructure, network access, identity and
@@ -120,10 +120,11 @@ applicable legal requirements.
 
 ## Hosted Form Setup
 
-The contact form uses a regular HTML `POST` request. This keeps the site static while a
-hosted provider receives and forwards submissions.
+The contact form uses a regular HTML `POST` request. This keeps the site static while a selected
+hosted form or email provider receives and forwards submissions. The website does not send mail
+directly and must not contain SMTP credentials, provider API keys, or private recipient settings.
 
-The form currently contains this placeholder action in `index.html`:
+The default form action is a placeholder:
 
 ```html
 https://formspree.io/f/REPLACE_WITH_FORM_ID
@@ -132,10 +133,10 @@ https://formspree.io/f/REPLACE_WITH_FORM_ID
 Before launch:
 
 1. Create a form with a provider such as Formspree, Netlify Forms, Basin, or another service.
-2. Replace `REPLACE_WITH_FORM_ID` with the endpoint supplied by that provider.
-3. Confirm `consult@cognit.com` is the intended contact address.
-4. Replace the visible form setup note with the provider's final instructions, if needed.
-5. Configure spam protection and notification delivery with the provider.
+2. Set `COGNIT_FORM_PROVIDER` and `COGNIT_FORM_ENDPOINT` in `cognit.env` or `site-config.js`.
+3. Configure the recipient mailbox, spam protection, and notification delivery with the provider.
+4. Set `COGNIT_CONTACT_EMAIL` to the public address shown on the website.
+5. Set `COGNIT_FORM_REDIRECT_URL` only if the selected provider supports a redirect field such as `_next`.
 6. Do not ask prospective customers to submit confidential, regulated, or proprietary information through this initial hosted form.
 7. Add a privacy notice describing how inquiry data is handled.
 
@@ -170,7 +171,14 @@ make
 ```
 
 Running `make` without a target displays the available commands. `make help` displays the same
-help text. To build and start the site:
+help text. To configure public deployment values for Docker, create `cognit.env` first:
+
+```bash
+cp cognit.env.example cognit.env
+```
+
+The Makefile automatically passes `cognit.env` to Compose when the file exists. To build and start
+the site:
 
 ```bash
 make build
@@ -201,18 +209,17 @@ To use a different host port, set `COGNIT_HOST_PORT` when starting the service:
 COGNIT_HOST_PORT=8081 make run
 ```
 
-The equivalent direct Compose command is:
+The equivalent direct Compose command, when `cognit.env` exists, is:
 
 ```bash
-docker compose up -d --build
+docker compose --env-file ./cognit.env up -d --build
 ```
 
-`cognit.env` is intentionally not copied into the image or loaded by the Dockerfile, Compose file,
-or Makefile. The current container runs nginx only, and neither nginx nor the browser-side
-JavaScript consumes the `COGNIT_*` values. Passing `--env-file ./cognit.env` to Docker is therefore
-harmless but has no effect on the rendered page. Use an env file only after adding a server-side
-process or a startup templating step that explicitly reads the variables. Keep deployment values
-outside the image and never commit secrets.
+Only the selected public values are passed to the container. The entrypoint regenerates
+`site-config.js` before nginx starts, so changing the public domain, contact address, or hosted form
+provider does not require editing `index.html` or rebuilding site content. The hosting provider is
+selected in the deployment platform rather than through a runtime site variable. Keep provider
+credentials and private recipient settings in the provider dashboard, outside the image.
 
 ## Deploy Publicly
 

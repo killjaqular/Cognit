@@ -10,6 +10,6 @@ cognit.conf
 # These files are not part of the served website.
 Dockerfile*
 README.md
-cognit.conf.example
+cognit.env.example
 compose.yaml
 Makefile
