@@ -1,0 +1,5 @@
+- [ ] 0. Register the business LLC officially with Florida at sunbiz.org
+- [ ] 1. Pay for a domain and hosting service
+- [ ] 2. Obtain an EIN from Social Security for the business
+- [ ] 3. (Depends on #2) Open a business bank account with Axos Bank (must have a business charter, checking account, and savings account)
+- [ ] 4. Find work through federal contracts (SAM.org), state contracts (Florida), and city/local contracts (Orlando/Orange County)
